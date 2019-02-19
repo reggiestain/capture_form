@@ -23,23 +23,24 @@ echo "</div><br><br>";
 <?php
 // if the form was submitted 
 if ($_POST) {
-
     // set contact property values
     $contact->firstname = $_POST['firstname'];
     $contact->surname = $_POST['surname'];
     $contact->birthdate = $_POST['birth_date'];
     $contact->mobile = $_POST['cellphone_number'];
     $contact->email = $_POST['email_address'];
-
-    // create the product
-    if ($contact->create()) {
+    
+    //Check if email exist
+    if ($contact->emailExists()) 
+        echo "<div class='alert alert-danger'>The email address has been taken, please enter a different email.</div>";        
+    else
+    // create the contact
+    if ($contact->create())
         echo "<div class='alert alert-success'>Contact was created.</div>";
-    }
 
     // if unable to create the contact, tell the user
-    else {
+    else 
         echo "<div class='alert alert-danger'>Unable to create contact.</div>";
-    }
 }
 ?>
 

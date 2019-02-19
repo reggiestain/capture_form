@@ -55,6 +55,24 @@ class Contact {
         }
     }
 
+    function emailExists() {
+        $query = "SELECT id FROM " . $this->table_name . " WHERE email_address=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->email);
+        $stmt->execute();
+        
+        return $stmt->fetchColumn();
+    }
+    
+    function mobileExists() {
+        $query = "SELECT id FROM " . $this->table_name . " WHERE cellphone_number=?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->mobile);
+        $stmt->execute();
+        
+        return $stmt->fetchColumn();
+    }
+
     //read contact
     function readAll($from_record_num, $records_per_page) {
 
