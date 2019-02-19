@@ -59,19 +59,19 @@ if($_POST){
  
         <tr>
             <td>First Name</td>
-            <td><input type='text' name='firstname' value='<?php echo $contact->firstname; ?>' class='form-control' /></td>
+            <td><input type='text' name='firstname' value='<?php echo $contact->firstname; ?>' class='form-control'  required/></td>
         </tr>
  
         <tr>
             <td>Surname</td>
-            <td><input type='text' name='surname' value='<?php echo $contact->surname; ?>' class='form-control' /></td>
+            <td><input type='text' name='surname' value='<?php echo $contact->surname; ?>' class='form-control'  required/></td>
         </tr>
  
         <tr>
             <td>Birth Date</td>
             <td>
              <div class="input-group date" data-provide="datepicker">
-                    <input id="datepicker" type="text" name="birth_date" value='<?php echo $contact->birthdate; ?>' class="form-control">
+                    <input id="datepicker" type="text" name="birth_date" value='<?php echo $contact->birthdate; ?>' class="form-control"  required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-th"></span>
                     </div>
@@ -81,12 +81,12 @@ if($_POST){
  
         <tr>
             <td>Mobile Number</td>
-            <td><input type='text' name='cellphone_number' value='<?php echo $contact->mobile; ?>' class='form-control' /></td>
+            <td><input type='text' name='cellphone_number' value='<?php echo $contact->mobile; ?>' class='form-control' pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\ " required/></td>
         </tr>
         
         <tr>
             <td>Email Address</td>
-            <td><input type='email' name='email_address' value='<?php echo $contact->email; ?>' class='form-control' /></td>
+            <td><input type='email' name='email_address' value='<?php echo $contact->email; ?>' class='form-control'  required/></td>
         </tr>
  
         <tr>

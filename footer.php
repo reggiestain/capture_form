@@ -51,7 +51,7 @@ $(document).on('click', '.delete-object', function(){
 
 $(document).ready(function() {
     $('#example').DataTable();
-    $.fn.datepicker.defaults.format = "dd-mm-yy";
+    $.fn.datepicker.defaults.format = "yyyy-mm-dd";
     $('#datepicker').datepicker();
 } );
 </script>
